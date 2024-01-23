@@ -613,6 +613,7 @@ static inline EFI_STATUS
 allocate_pages(EFI_ALLOCATE_TYPE atype, EFI_MEMORY_TYPE mtype,
 	       UINTN num_pages, EFI_PHYSICAL_ADDRESS *memory)
 {
+	// printf("allocate_pages( addr: 0x%x, pages: %d, atype: %d, mtype: %d )\n", memory, num_pages, atype, mtype);
 	return uefi_call_wrapper(BS->AllocatePages, 4, atype,
 				 mtype, num_pages, memory);
 }
@@ -632,7 +633,7 @@ free_pages(EFI_PHYSICAL_ADDRESS memory, UINTN num_pages)
 static EFI_STATUS allocate_addr(EFI_PHYSICAL_ADDRESS *addr, size_t size)
 {
 	UINTN npages = EFI_SIZE_TO_PAGES(size);
-
+	// printf("allocate_addr( addr: 0x%x, size: %d, pages: %d, atype: %d, mtype: %d )\n", addr, size, npages, AllocateAddress, EfiLoaderData);
 	return uefi_call_wrapper(BS->AllocatePages, 4,
 				   AllocateAddress,
 				   EfiLoaderData, npages,

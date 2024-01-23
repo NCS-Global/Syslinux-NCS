@@ -52,7 +52,7 @@ int new_linux_kernel(char *okernel, char *ocmdline)
 		opt_quiet = true;
 
 	if (!opt_quiet)
-		printf("Loading %s... ", kernel_name);
+		printf("Loading %s", kernel_name);
 
 	if (loadfile(kernel_name, &kernel_data, &kernel_len)) {
 		if (opt_quiet)
@@ -95,7 +95,7 @@ int new_linux_kernel(char *okernel, char *ocmdline)
 		    temp += n;
 
 		    if (!opt_quiet)
-			printf("Loading %s...", initrd_name);
+			printf("Loading %s", initrd_name);
 
 		    if (initramfs_load_archive(initramfs, initrd_name)) {
 			if (opt_quiet)

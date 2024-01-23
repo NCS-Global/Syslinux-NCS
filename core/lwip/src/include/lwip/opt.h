@@ -566,7 +566,7 @@
  * (requires IP_FRAG_USES_STATIC_BUF==1)
  */
 #if IP_FRAG_USES_STATIC_BUF && !defined(IP_FRAG_MAX_MTU)
-#define IP_FRAG_MAX_MTU                 1500
+#define IP_FRAG_MAX_MTU                 65535 - (PPP_HDRLEN + PPP_FCSLEN
 #endif
 
 /**
@@ -1704,7 +1704,7 @@
  */
 #define PPP_MTU                         1500     /* Default MTU (size of Info field) */
 #ifndef PPP_MAXMTU
-/* #define PPP_MAXMTU  65535 - (PPP_HDRLEN + PPP_FCSLEN) */
+// #define PPP_MAXMTU  65535 - (PPP_HDRLEN + PPP_FCSLEN)
 #define PPP_MAXMTU                      1500 /* Largest MTU we allow */
 #endif
 #define PPP_MINMTU                      64
